@@ -16,7 +16,7 @@ feature 'user signs up', %Q{
   scenario 'specifies all the valid information' do
     visit root_path
 
-    click_link 'Sign Up'
+    click_link 'Sign up'
     fill_in 'First Name',
       with: 'Emily'
     fill_in 'Last Name',
@@ -32,30 +32,30 @@ feature 'user signs up', %Q{
     end
 
     expect(page).to have_content("Congrats! You're all signed-up.")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("Sign out")
     expect(current_path).to eql(root_path)
   end
 
 
   scenario 'all required information not included' do
     visit root_path
-    click_link 'Sign Up'
+    click_link 'Sign up'
     within('form') do
       click_button 'Sign up'
     end
 
     expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content("Sign out")
   end
 
   scenario 'password confirmation does not match confirmation' do
     visit root_path
-    click_link 'Sign Up'
+    click_link 'Sign up'
     fill_in 'user_password',
       with: 'password'
     fill_in 'user_password_confirmation',
       with: 'thisisDifferent'
-      save_and_open_page
+
     within('form') do
       click_button 'Sign up'
     end
@@ -64,6 +64,8 @@ feature 'user signs up', %Q{
     expect(page).to_not have_content("Sign Out")
   end
 end
+
+
 
 
 
@@ -79,6 +81,34 @@ feature 'user signs up', %Q{
   # *If I specify an invalid email and password, I remain unauthenticated
   # *If I am already signed in, I can't sign in again.
 
+  scenario "A registered user enters their correct email and password" do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_link 'Sign in'
+    fill_in 'Email',
+      with: user.email
+    fill_in 'Password',
+      with: user.password
+    within('form') do
+      click_button 'Sign in'
+    end
+
+    expect(page).to have_content("Signed in successfully.")
+  end
 
 
+  scenario "A user enters the wrong password" do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_link 'Sign in'
+    fill_in 'Email',
+      with: user.email
+    fill_in 'Password',
+      with: 'notmypassword'
+    within('form') do
+      click_button 'Sign in'
+    end
+
+    expect(page).to have_content("Invalid email or password.")
+  end
 end

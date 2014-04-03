@@ -5,6 +5,8 @@ group :test, :development do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'valid_attribute'
+  gem 'quiet_assets'
 end
 
 group :test do
@@ -12,6 +14,10 @@ group :test do
   gem 'shoulda'
   gem 'launchy'
 end
+
+gem 'simple_form'
+gem 'foundation-rails'
+gem 'devise'
 
 gem 'rails', '4.0.4'
 

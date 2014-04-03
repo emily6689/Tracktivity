@@ -1,6 +1,18 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+group :test, :development do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'shoulda'
+  gem 'launchy'
+end
+
 gem 'rails', '4.0.4'
 
 # Use postgresql as the database for Active Record

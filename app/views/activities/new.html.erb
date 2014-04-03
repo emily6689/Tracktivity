@@ -1,0 +1,6 @@
+<h1>Add an Activity</h1>
+
+<%= simple_form_for @activity do |f| %>
+  <%= f.input :name, label: 'New Activity', required: true%>
+  <%= f.button :submit, 'Create' %>
+<%- end -%>

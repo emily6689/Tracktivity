@@ -2,5 +2,6 @@
 
 <%= simple_form_for @activity do |f| %>
   <%= f.input :name, label: 'New Activity', required: true%>
+  <%= f.association :categories, as: :check_boxes %>
   <%= f.button :submit, 'Create' %>
 <%- end -%>

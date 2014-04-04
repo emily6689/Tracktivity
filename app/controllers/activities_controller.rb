@@ -11,8 +11,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
+      @activity.categories = Category.find_all_by_id(params[:activity][:category_ids])
       flash[:notice] = "You're activity was successfully created. Yay!"
-      redirect_to activity_path(@activity)
+      redirect_to activity_path
     else
       flash[:notice] = "Please fill out the appropriate information."
       render :new

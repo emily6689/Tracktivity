@@ -11,6 +11,7 @@ describe Activity do
     it { should belong_to :user }
     it { should have_many :categorizations}
     it { should have_many(:categories).through(:categorizations) }
+    it { should have_many(:logs) }
   end
 
 end

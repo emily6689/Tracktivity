@@ -19,44 +19,43 @@ feature 'create activity', %Q{
   # *The user will get an error message if the activity does not have a specified name.
 
 
-  before :each do
-    user = FactoryGirl.create(:user)
-    visit root_path
-    click_link 'Sign in'
-    fill_in 'Email',
-      with: user.email
-    fill_in 'Password',
-      with: user.password
-    within('form') do
-      click_button 'Sign in'
+
+
+
+  describe "a signed-in user creates an activity to track" do
+    before :each do
+      Seeders::CategoriesSeeder.seed
+      user = FactoryGirl.create(:user)
+      sign_in_as(user)
+      visit new_activity_path
+    end
+
+    scenario 'user adds a activity with valid attributes' do
+      new_activity = FactoryGirl.build(:activity)
+      prev_count = Activity.count
+
+      fill_in 'New Activity',
+        with: new_activity.name
+      check 'Hobbies'
+      check 'Relaxation'
+      click_on 'Create'
+
+      expect(page).to have_content("You're activity was successfully created. Yay!")
+      expect(Activity.last.categories.count).to eql(2)
+      expect(Activity.count).to eql(prev_count + 1)
+    end
+
+
+    scenario "user doesn't fill out 'Activity Name'" do
+      new_activity = FactoryGirl.build(:activity)
+      prev_count = Activity.count
+
+      check 'Hobbies'
+      check 'Relaxation'
+      click_on 'Create'
+
+      expect(page).to have_content("Please fill out all the required fields.")
+      expect(Activity.count).to eql(prev_count)
     end
   end
-
-
-
-  scenario 'user adds a activity with valid attributes' do
-    Seeders::CategoriesSeeder.seed
-    new_activity = FactoryGirl.build(:activity)
-    prev_count = Activity.count
-
-    visit new_activity_path
-
-    fill_in 'New Activity',
-      with: new_activity.name
-    check 'Hobbies'
-    check 'Relaxation'
-    click_on 'Create'
-    expect(page).to have_content("You're activity was successfully created. Yay!")
-    expect(Activity.last.categories.count).to eql(2)
-    expect(Activity.count).to eql(prev_count + 1)
-  end
-
-
-  scenario "user doesn't fill out 'Activity Name'"
-  scenario "user doesn't select any categories"
-
-
-
-
-
 end

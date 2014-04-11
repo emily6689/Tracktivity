@@ -11,4 +11,8 @@ describe Log do
     it {should belong_to(:activity) }
   end
 
+  context "datetime" do
+    # log = FactoryGirl.create(:log)
+
+  end
 end

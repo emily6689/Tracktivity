@@ -1,6 +1,8 @@
 class ActivitiesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @activities = Activity.all
+    @activities = Activity.where(user: current_user)
   end
 
   def new

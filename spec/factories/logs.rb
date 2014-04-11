@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :log do
-    activity_id 1
-    time_clocked_in "2014-04-10 14:01:49"
-    time_clocked_out "2014-04-10 14:01:49"
+    activity
+    time_clocked_in DateTime.new(2014,2,3,4,30,0)
+    time_clocked_out DateTime.new(2014,2,3,6,40,0)
   end
 end

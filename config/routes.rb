@@ -1,6 +1,20 @@
 Tracktivity::Application.routes.draw do
-  devise_for :users
-  root 'welcome#index'
+
+  #root 'welcome#index'
+
+
+
+get '/' => 'activities#index', constraints: RoleConstraint.new
+root 'welcome#index'
+
+devise_for :users
+
+
+  # authenticated :user do
+  #   root 'activities#index'
+  # end
+
+
 
   resources :activities
   # The priority is based upon order of creation: first created -> highest priority.

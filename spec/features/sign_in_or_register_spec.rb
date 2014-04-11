@@ -15,7 +15,6 @@ feature 'user signs up', %Q{
 
   scenario 'specifies all the valid information' do
     visit root_path
-
     click_link 'Sign up'
     fill_in 'First Name',
       with: 'Emily'
@@ -39,6 +38,7 @@ feature 'user signs up', %Q{
 
   scenario 'all required information not included' do
     visit root_path
+
     click_link 'Sign up'
     within('form') do
       click_button 'Sign up'

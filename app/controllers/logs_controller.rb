@@ -12,13 +12,6 @@ class LogsController < ApplicationController
         format.json { render json: @log }
       end
     end
-    # redirect_to activity_path(@log.activity)
   end
-
-  # def update
-  #   @log = Log.find(params[:id])
-  #   @log.update!(time_clocked_out: DateTime.now)
-  #   redirect_to activity_path(@log.activity)
-  # end
 
 end

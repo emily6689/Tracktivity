@@ -3,6 +3,7 @@ class Log < ActiveRecord::Base
   validates :time_clocked_in, presence: true
 
   belongs_to :activity
+  #belongs_to :user, through: :activity
 
 
   before_save :set_duration, if: Proc.new { |log| log.time_clocked_out.present? }

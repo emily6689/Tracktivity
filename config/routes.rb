@@ -9,14 +9,10 @@ root 'welcome#index'
 
 devise_for :users
 
+resources :activities do
+  resources :logs, only: [:create, :update]
+end
 
-  # authenticated :user do
-  #   root 'activities#index'
-  # end
-
-
-
-  resources :activities
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

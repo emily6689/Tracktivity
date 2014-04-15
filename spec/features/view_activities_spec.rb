@@ -21,7 +21,6 @@ feature "View all Activites", %Q{
     activity4 = FactoryGirl.create(:activity, user: user)
     activity5 = FactoryGirl.create(:activity, name: "HiddenActivity", user: user2)
     visit root_path
-    save_and_open_page
     expect(page).to have_content(activity1.name)
     expect(page).to_not have_content("HiddenActivity")
   end
@@ -41,12 +40,6 @@ feature "View all Activites", %Q{
 
     expect(current_path).to eql(activity_path(activity1))
   end
-
-
-
-
-
-
 end
 
 

@@ -1,1 +1,9 @@
-<h1> @activity.name </h1>
+<h1> <%= @activity.name %></h1>
+
+
+<% if Log.count == 0 || Log.last.time_clocked_out != nil %>
+  <%= link_to "Clock In", activity_logs_path(@activity), :method => :post %>
+<% elsif  Log.count > 0 && Log.last.time_clocked_out == nil %>
+  <%= link_to "Clock Out", activity_log_path(@activity, Log.last), :method => :patch %>
+<% end %>
+

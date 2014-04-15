@@ -1,19 +1,21 @@
 class Log < ActiveRecord::Base
-  validates :activity_id, presence: true
+  validates :activity, presence: true
   validates :time_clocked_in, presence: true
-  validates :time_clocked_out, presence: true
-
-  before_save :set_time_spent, if: Proc.new { |log| log.time_clocked_out.present? }
 
   belongs_to :activity
 
-  def set_time_spent
-    self.time_spent = individual_time_spent
+
+  before_save :set_duration, if: Proc.new { |log| log.time_clocked_out.present? }
+
+
+
+  def set_duration
+    self.duration = calculate_duration
   end
 
-  def individual_time_spent
+  def calculate_duration
     hours   = (time_clocked_out.hour - time_clocked_in.hour)
-    minutes = (time_clocked_out.minute - time_clocked_in.minute)
+    minutes = (time_clocked_out.min - time_clocked_in.min)
     (hours*60) + minutes
   end
 

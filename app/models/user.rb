@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   has_many :activities
+  has_many :logs, through: :activities
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

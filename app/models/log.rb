@@ -19,4 +19,10 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
+  # class << self
+  #   def incomplete
+  #     where(time_clocked_out: nil)
+  #   end
+  # end
+
 end

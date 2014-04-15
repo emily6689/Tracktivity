@@ -10,5 +10,9 @@ class Activity < ActiveRecord::Base
     through: :categorizations
   has_many :logs
 
+  def incomplete_logs
+    logs.where(time_clocked_out: nil)
+  end
+
 
 end

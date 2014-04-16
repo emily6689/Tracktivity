@@ -20,7 +20,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'devise'
 gem 'rails', '4.0.4'
-gem 'groupdate'
+gem 'chartkick'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

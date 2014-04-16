@@ -24,8 +24,7 @@ feature "user can view their productivity statements", %Q{
     visit root_path
     click_on "Statements"
 
-    expect(current_path).to eql()
-    save_and_open_page
+    expect(current_path).to eql(activity_logs_path)
   end
 
 end

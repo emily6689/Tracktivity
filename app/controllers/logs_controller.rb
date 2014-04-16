@@ -1,5 +1,10 @@
 class LogsController < ApplicationController
 
+  def index
+    @logs = User.find(current_user.id).logs
+    # binding.pry
+  end
+
   def create
     @log = Activity.find(params[:activity_id]).incomplete_logs.take
     if @log

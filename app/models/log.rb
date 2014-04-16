@@ -16,20 +16,24 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
-  def date_parser(y, m, d)
-
+  def date_parser(datetime)
+    [datetime.year, datetime.month, datetime.year]
   end
 
   class << self
     def sort_by_day(y, m, d)
-      Log.all.select { |log| log.time_clocked_in.to_date == DateTime.new(y, m, d)}
+      date = Date.new(y,m,d)
+      Log.where(time_clocked_in: date.beginning_of_day..date.end_of_day)
     end
 
     def sort_by_week(y, m, d)
-      sort_by_day(y, m, d)
+      date = Date.new(y,m,d)
+      Log.where(time_clocked_in: date.beginning_of_week..date.end_of_week)
+    end
 
-
+    def sort_by_month(y, m)
+      date = Date.new(y, m)
+      Log.where(time_clocked_in: date.beginning_of_month..date.end_of_month)
     end
   end
-
 end

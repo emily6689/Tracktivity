@@ -9,7 +9,7 @@ module Seeders
 
       def categories
         %w(
-          Hobbies Family&Friends Work Education Relaxation
+          Hobbies Family&Friends Work Education Relaxation Exercise
           )
       end
     end

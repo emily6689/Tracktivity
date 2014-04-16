@@ -12,23 +12,26 @@ describe Log do
 
 
   context "datetime instance methods" do
-    before(:each) do
+    it 'should calculate duration based on clock-in and clock-out attributes' do
       log = FactoryGirl.create(:log)
       log1 = FactoryGirl.create(:log, time_clocked_in: DateTime.new(2014,2,4,4,30,0), time_clocked_out: DateTime.new(2014,2,4,6,40,0))
       log2 = FactoryGirl.create(:log, time_clocked_in: DateTime.new(2014,2,4,7,30,0), time_clocked_out: DateTime.new(2014,2,4,8,40,0))
-    end
 
-    it 'should calculate duration based on clock-in and clock-out attributes' do
       expect(log.calculate_duration).to eql(130)
     end
 
-    it "you should be able to organize logs by date" do
-      expect(Log.sort_by_day(2/4/2014)).
+    it "user can organize logs by date" do
+      log = FactoryGirl.create(:log)
+      log1 = FactoryGirl.create(:log, time_clocked_in: DateTime.new(2014,2,4,4,30,0), time_clocked_out: DateTime.new(2014,2,4,6,40,0))
+      log2 = FactoryGirl.create(:log, time_clocked_in: DateTime.new(2014,2,4,7,30,0), time_clocked_out: DateTime.new(2014,2,4,8,40,0))
+
+      expect(Log.sort_by_day(2014,2,4)).to eql([log1, log2])
+      expect(Log.sort_by_day(2014,2,3)).to eql([log])
     end
 
+    it "user can organize logs by week" do
+
+    end
   end
 
-  context "can be invoked by date" do
-
-  end
 end

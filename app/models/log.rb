@@ -3,12 +3,8 @@ class Log < ActiveRecord::Base
   validates :time_clocked_in, presence: true
 
   belongs_to :activity
-  #belongs_to :user, through: :activity
-
 
   before_save :set_duration, if: Proc.new { |log| log.time_clocked_out.present? }
-
-
 
   def set_duration
     self.duration = calculate_duration
@@ -20,10 +16,20 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
-  # class << self
-  #   def incomplete
-  #     where(time_clocked_out: nil)
-  #   end
-  # end
+  def date_parser(y, m, d)
+
+  end
+
+  class << self
+    def sort_by_day(y, m, d)
+      Log.all.select { |log| log.time_clocked_in.to_date == DateTime.new(y, m, d)}
+    end
+
+    def sort_by_week(y, m, d)
+      sort_by_day(y, m, d)
+
+
+    end
+  end
 
 end

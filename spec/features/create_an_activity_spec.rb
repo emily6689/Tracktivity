@@ -21,7 +21,6 @@ feature 'create activity', %Q{
 
 
 
-
   describe "a signed-in user creates an activity to track" do
     before :each do
       Seeders::CategoriesSeeder.seed

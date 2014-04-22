@@ -16,9 +16,6 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
-  def date_parser(datetime)
-    [datetime.year, datetime.month, datetime.year]
-  end
 
   class << self
     def sort_by_day(y, m, d)

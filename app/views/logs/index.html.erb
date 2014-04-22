@@ -1,13 +1,9 @@
-<p>Date: <input type="text" class="datepicker"></p>
-
+<div id="search-form">
+  <%=simple_form_for :q, url: logs_path, method: :post do |f|%>
+    <%= f.input :name, required: false, label: "Site Name Or Country" %>
+    <%= f.submit 'Search', class: 'button small'%>
+  <%end%>
+</div>
 
 <%= pie_chart @activities.map {|activity| [activity.name, activity.logs.sum(:duration)]} %>
 
-
-<% content_for :extra_footer do %>
-  <script>
-    $(function() {
-      $(".datepicker").datepicker();
-    });
-  </script>
-<% end %>

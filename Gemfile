@@ -21,6 +21,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'rails', '4.0.4'
 gem 'chartkick'
+gem 'jquery-ui-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

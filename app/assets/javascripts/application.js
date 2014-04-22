@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require stopwatch
-//= require datepicker
+//= require jquery.ui.datepicker
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

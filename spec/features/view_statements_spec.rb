@@ -20,11 +20,13 @@ feature "user can view their productivity statements", %Q{
     activity3 = FactoryGirl.create(:activity, user: user)
     activity4 = FactoryGirl.create(:activity, user: user)
     activity5 = FactoryGirl.create(:activity, name: "HiddenActivity", user: user2)
+    log = FactoryGirl.create(:log, activity: activity1)
+    log1 = FactoryGirl.create(:log, activity: activity2)
 
     visit root_path
     click_on "Statements"
 
-    expect(current_path).to eql(activity_logs_path)
+    expect(current_path).to eql(logs_path)
   end
 
 end

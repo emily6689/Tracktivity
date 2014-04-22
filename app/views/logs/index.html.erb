@@ -1,0 +1,13 @@
+<p>Date: <input type="text" class="datepicker"></p>
+
+
+<%= pie_chart @activities.map {|activity| [activity.name, activity.logs.sum(:duration)]} %>
+
+
+<% content_for :extra_footer do %>
+  <script>
+    $(function() {
+      $(".datepicker").datepicker();
+    });
+  </script>
+<% end %>

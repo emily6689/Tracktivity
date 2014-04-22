@@ -13,6 +13,9 @@ class Activity < ActiveRecord::Base
   def incomplete_logs
     logs.where(time_clocked_out: nil)
   end
-
-
 end
+
+
+
+
+

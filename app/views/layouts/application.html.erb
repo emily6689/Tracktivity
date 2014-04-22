@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
     <%= csrf_meta_tags %>
   </head>
 
@@ -17,8 +19,9 @@
       <%= render 'layouts/sub_navbar' %>
       <%= render 'layouts/messages' %>
       <%= yield %>
+
       <%= javascript_include_tag "application" %>
-      <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
       <%= yield :extra_footer %>
 
   </body>

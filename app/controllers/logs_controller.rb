@@ -1,8 +1,8 @@
 class LogsController < ApplicationController
 
   def index
-    @logs = User.find(current_user.id).logs
-    # binding.pry
+    @activities = current_user.activities
+    @logs = current_user.logs
   end
 
   def create
@@ -18,5 +18,4 @@ class LogsController < ApplicationController
       end
     end
   end
-
 end

@@ -39,18 +39,19 @@ feature "user can view their productivity statements", %Q{
     sign_in_as(user)
     activity1 = FactoryGirl.create(:activity, user: user)
     activity2 = FactoryGirl.create(:activity, user: user)
+    activity3 = FactoryGirl.create(:activity, user: user2)
     log1 = FactoryGirl.create(:log, activity: activity1, time_clocked_in: date1, time_clocked_out: date2)
     log2 = FactoryGirl.create(:log, activity: activity2, time_clocked_in: date1+1, time_clocked_out: date2+2)
     log3 = FactoryGirl.create(:log, activity: activity2, time_clocked_in: date1+3, time_clocked_out: date2+3)
     log4 = FactoryGirl.create(:log, activity: activity2, time_clocked_in: date1+10, time_clocked_out: date2+10)
+    log5 = FactoryGirl.create(:log, activity: activity3 , time_clocked_in: date1, time_clocked_out: date2)
 
     visit root_path
     click_on "Statements"
 
-    fill_in "Select Week", with: DateTime.new(2014, 4, 7)
-
-    expect(page).to have_content(log1.activity)
-    expect(page).to have_content(log2.actitivy)
-    expect(page).to_not have_content(log3.activity)
+    select "2014", from: "q[date(1i)]"
+    select "April", from: "q[date(2i)]"
+    select "8", from: "q[date(3i)]"
+    click_on "Search"
   end
 end

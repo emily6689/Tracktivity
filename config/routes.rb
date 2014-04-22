@@ -9,7 +9,13 @@ root 'welcome#index'
 
 devise_for :users
 
-resources :logs, only: [:index]
+resources :logs, only: [:index, :search] do
+  collection do
+    post 'search', to: 'logs#index'
+  end
+end
+
+
 resources :activities do
   resources :logs, only: [:create, :update]
 end

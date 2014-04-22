@@ -1,8 +1,8 @@
 <div id="search-form">
-  <%=simple_form_for :q, url: logs_path, method: :post do |f|%>
-    <%= f.input :name, required: false, label: "Site Name Or Country" %>
+  <%=simple_form_for :q, url: search_logs_path, method: :post do |f|%>
+    <%= f.input :date, label: "Select Week", as: :date %>
     <%= f.submit 'Search', class: 'button small'%>
-  <%end%>
+  <% end %>
 </div>
 
 <%= pie_chart @activities.map {|activity| [activity.name, activity.logs.sum(:duration)]} %>

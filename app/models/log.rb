@@ -3,6 +3,7 @@ class Log < ActiveRecord::Base
   validates :time_clocked_in, presence: true
 
   belongs_to :activity
+  has_many :categories, through: :activity
 
   before_save :set_duration, if: Proc.new { |log| log.time_clocked_out.present? }
 
@@ -29,10 +30,6 @@ class Log < ActiveRecord::Base
     def sort_by_month(y, m)
       date = Date.new(y, m)
       Log.where(time_clocked_in: date.beginning_of_month..date.end_of_month)
-    end
-
-    def search(params)
-      binding.pry
     end
   end
 end

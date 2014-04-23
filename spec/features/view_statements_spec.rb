@@ -32,6 +32,7 @@ feature "user can view their productivity statements", %Q{
 
 
   scenario "logs can be grouped by week" do
+    Seeders::CategoriesSeeder.seed
     date1 = DateTime.new(2014, 4, 7, 8, 20)
     date2 = DateTime.new(2014, 4, 7, 9, 30)
     user = FactoryGirl.create(:user)
@@ -40,6 +41,9 @@ feature "user can view their productivity statements", %Q{
     activity1 = FactoryGirl.create(:activity, user: user)
     activity2 = FactoryGirl.create(:activity, user: user)
     activity3 = FactoryGirl.create(:activity, user: user2)
+    categorization1 = FactoryGirl.create(:categorization, activity_id: activity1.id)
+    categorization2 = FactoryGirl.create(:categorization, activity_id: activity1.id, category_id: 2)
+    categorization3 = FactoryGirl.create(:categorization, activity_id: activity2.id, category_id: 3)
     log1 = FactoryGirl.create(:log, activity: activity1, time_clocked_in: date1, time_clocked_out: date2)
     log2 = FactoryGirl.create(:log, activity: activity2, time_clocked_in: date1+1, time_clocked_out: date2+2)
     log3 = FactoryGirl.create(:log, activity: activity2, time_clocked_in: date1+3, time_clocked_out: date2+3)

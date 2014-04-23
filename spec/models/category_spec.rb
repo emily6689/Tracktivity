@@ -8,5 +8,6 @@ describe Category do
   context 'associations' do
     it { should have_many :categorizations}
     it { should have_many(:activities).through(:categorizations) }
+    it { should have_many(:logs).through(:activities)}
   end
 end

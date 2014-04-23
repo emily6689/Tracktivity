@@ -8,6 +8,7 @@ describe Log do
 
   context "associations" do
     it { should belong_to(:activity) }
+    it { should have_many(:categories).through(:activity) }
   end
 
 
@@ -28,7 +29,7 @@ describe Log do
 
       expect(Log.sort_by_day(2014,2,4)).to match_array([log1, log2])
       expect(Log.sort_by_day(2014,2,3)).to match_array([log])
-      expect(Log.sort_by_week(2014,2,3)).to match_array([log, log1, log2])
+      expect(Log.sort_by_week(DateTime.new(2014,2,3))).to match_array([log, log1, log2])
     end
 
     it "user can organize logs by week" do

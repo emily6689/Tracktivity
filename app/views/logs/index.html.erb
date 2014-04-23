@@ -7,3 +7,9 @@
 
 <%= pie_chart @activities.map {|activity| [activity.name, activity.logs.sum(:duration)]} %>
 
+<% if @queried_logs != nil %>
+  <%= @queried_logs.count %>
+  <%= pie_chart @queried_logs.group(:activity).sum(:duration) %>
+<% end %>
+
+

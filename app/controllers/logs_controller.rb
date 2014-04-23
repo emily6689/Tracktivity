@@ -4,8 +4,9 @@ class LogsController < ApplicationController
     @activities = current_user.activities
     @logs = current_user.logs
     if params[:q]
-      new_date = DateTime.new(params[:q]["date(1i)"].to_i, params[:q]["date(2i)"].to_i, params[:q]["date(3i)"].to_i)
-      binding.pry
+      query_date = DateTime.new(params[:q]["date(1i)"].to_i, params[:q]["date(2i)"].to_i, params[:q]["date(3i)"].to_i)
+      @queried_logs = @logs.sort_by_week(query_date)
+      render :index
     end
   end
 

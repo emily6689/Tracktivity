@@ -6,6 +6,8 @@ class LogsController < ApplicationController
     if params[:q]
       query_date = DateTime.new(params[:q]["date(1i)"].to_i, params[:q]["date(2i)"].to_i, params[:q]["date(3i)"].to_i)
       @queried_logs = @logs.sort_by_week(query_date)
+      @categories = @queried_logs.list_categories
+      binding.pry
       render :index
     end
   end

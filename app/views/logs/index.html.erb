@@ -9,6 +9,7 @@
 
 <% if @queried_logs != nil %>
   <%= @queried_logs.count %>
+  <%= @logs.count %>
   <%= pie_chart @queried_logs.group(:activity).sum(:duration) %>
 <% end %>
 

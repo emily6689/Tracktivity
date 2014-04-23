@@ -17,6 +17,8 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
+
+
   class << self
     def sort_by_day(y, m, d)
       date = Date.new(y,m,d)
@@ -30,6 +32,16 @@ class Log < ActiveRecord::Base
     def sort_by_month(y, m)
       date = Date.new(y, m)
       Log.where(time_clocked_in: date.beginning_of_month..date.end_of_month)
+    end
+
+    def list_categories
+      queried_categories = []
+      Log.all.each do |log|
+        log.categories.each do |category|
+          queried_categories << category
+        end
+      end
+      queried_categories.uniq
     end
   end
 end

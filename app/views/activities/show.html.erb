@@ -36,6 +36,7 @@
         startTimer();
       <% end %>
     });
+
     function stopWatch(clockIn) {
       if (!clockIn || !clockIn.length) {
         return setClock(0, 0, 0)
@@ -55,10 +56,16 @@
     function startTimer(){
       timer = setInterval(function(){
         var seconds = $('.seconds').text();
-        var minutes = $('.minutes').text();
-        var hours = $('.hours').text();
         $('.seconds').text(++seconds);
       }, 1000)
+      setInterval(function(){
+        var minutes = $('.minutes').text();
+        $('.minutes').text(++minutes);
+      }, 60000)
+      setInterval(function(){
+      var minutes = $('.minutes').text();
+      $('.minutes').text(++minutes);
+      }, 3600000)
     }
 
     function stopTimer(){

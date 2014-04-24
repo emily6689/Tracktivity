@@ -1,6 +1,6 @@
 <div id="search-form">
   <%=simple_form_for :q, url: search_logs_path, method: :post do |f|%>
-    <%= f.input :date, label: "Select Week", as: :date %>
+    <%= f.input :date, label: "Select Week", input_html: {class: 'datepicker'} %>
     <%= f.submit 'Search', class: 'button small'%>
   <% end %>
 </div>
@@ -9,8 +9,6 @@
 
 <% if @queried_logs != nil %>
   <%= pie_chart @total_productivity.map { |label, duration| [label, duration] } %>
-  -
+
   <%= column_chart @queried_categories.map { |category, duration| [category, duration] }, library: {colors: ["red"]} %>
 <% end %>
-
-

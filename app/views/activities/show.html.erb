@@ -1,5 +1,4 @@
-1<h1> <%= @activity.name %></h1>
-
+<h1> <%= @activity.name %></h1>
 
 <div class='clock'>
 <% if !@log %>
@@ -8,21 +7,65 @@
   <%= link_to "Clock Out", activity_logs_path(@activity), class: 'clock-out button', :method => :post, remote: true %>
 <% end %>
 </div>
+<div class='timer'>
+  <p><span class='hours'></span>:<span class='minutes'></span>:<span class='seconds'></span></p>
+</div>
+<div class='results'>
+</div>
 
 
 <% content_for :extra_footer do %>
   <script>
+    var timer;
     $(function(){
       $('.clock').on('ajax:success', function(event, response){
         $link = $(event.target);
         $link.hide();
         if ($link.text() === 'Clock In'){
           $link.text('Clock Out');
+          stopWatch();
+          startTimer();
         } else {
           $link.text('Clock In');
+          stopTimer();
         }
         $link.show();
       });
+      stopWatch('<%= @log.time_clocked_in if @log %>')
+      <% if @log %>
+        startTimer();
+      <% end %>
     });
+    function stopWatch(clockIn) {
+      if (!clockIn || !clockIn.length) {
+        return setClock(0, 0, 0)
+      }
+      var now = new Date()
+      var start = new Date(clockIn);
+      var difference = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(start,"DD/MM/YYYY HH:mm:ss")));
+      setClock(difference.get('hour'), difference.get('minute'), difference.get('second'));
+
+    }
+    function setClock(hours, minutes, seconds) {
+      $('.hours').text(hours);
+      $('.minutes').text(minutes);
+      $('.seconds').text(seconds);
+    }
+
+    function startTimer(){
+      timer = setInterval(function(){
+        var seconds = $('.seconds').text();
+        var minutes = $('.minutes').text();
+        var hours = $('.hours').text();
+        $('.seconds').text(++seconds);
+      }, 1000)
+    }
+
+    function stopTimer(){
+      clearInterval(timer);
+      // $('.results').html($('.timer').html());
+      // setClock(0, 0, 0);
+    }
+
   </script>
 <% end %>

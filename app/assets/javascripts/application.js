@@ -13,10 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require jquery.ui.datepicker
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require moment.min
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  $('.datepicker').pickadate();
+});
 
 
 

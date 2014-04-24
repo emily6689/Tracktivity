@@ -1,6 +1,13 @@
 <h1>Activities</h1>
 
-<%= @activities.each do |activity|%>
-  <div><%= link_to activity.name,  activity_path(activity)%></div>
-<%- end -%>
+
+  <ul class="button-group">
+    <% @activities.each do |activity|%>
+    <div class="row">
+      <li class = "activity-button medium-12 columns"><%= link_to activity.name,  activity_path(activity)%></li>
+    </div>
+    <%- end -%>
+  </ul>
+
+
 

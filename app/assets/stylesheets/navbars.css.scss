@@ -1,0 +1,82 @@
+
+/*<-- Nav Bars -->*/
+div.my-nav{
+  height: 100px;
+  width: 100%;
+  background-color: #2E313D;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.my-nav ul{
+  margin: 0 auto;
+}
+
+.my-nav li {
+  height: 90px;
+  width: 250px;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.my-nav a{
+  height: 90px;
+  width: 250px;
+  margin-top: 20px;
+  color: white;
+  padding-left: 10px
+
+}
+
+.my-nav > ul > li > .active,
+.my-nav a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.activity{
+  padding: 16px;
+}
+
+
+
+
+/*<-- Body -->*/
+body{
+  background-image:url('/assets/tree_bark.png');
+    background-image:url('http://sc.studentboss.com/upload/photofiles/201008/bbsurjteu7.jpg');
+}
+
+.small-12{
+  margin-top: 10px;
+  text-align: center;
+  background-color: #EFF1C2 ;
+  border-style:solid;
+  border-color: #2E313D;
+  border-width: 10px;
+}
+
+
+.activity-list li{
+  list-style-type: none;
+}
+
+.medium-10 {
+  text-align: center
+}
+
+ul.activity-list{
+  text-align: center
+}
+
+.button {
+background-color: #2E313D;
+}
+
+
+
+
+
+
+
+

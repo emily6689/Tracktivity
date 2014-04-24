@@ -5,12 +5,12 @@
   <% end %>
 </div>
 
-<%= pie_chart @activities.map {|activity| [activity.name, activity.logs.sum(:duration)]} %>
+<%= pie_chart @activities.map { |activity| [activity.name, activity.logs.sum(:duration)] } %>
 
 <% if @queried_logs != nil %>
-  <%= @queried_logs.count %>
-  <%= @logs.count %>
-  <%= pie_chart @queried_logs.group(:activity).sum(:duration) %>
+  <%= pie_chart @total_productivity.map { |label, duration| [label, duration] } %>
+  -
+  <%= column_chart @queried_categories.map { |category, duration| [category, duration] }, library: {colors: ["red"]} %>
 <% end %>
 
 

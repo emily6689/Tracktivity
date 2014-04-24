@@ -18,7 +18,15 @@
       <%= render 'layouts/main_navbar' %>
       <%= render 'layouts/sub_navbar' %>
       <%= render 'layouts/messages' %>
-      <%= yield %>
+
+      <div class="row">
+        <div class="medium-1 columns"><br></div>
+        <div class="small-12 medium-10 columns"><%= yield %></div>
+        <div class="medium-1 columns"><br></div>
+
+      </div>
+
+
 
       <%= javascript_include_tag "application" %>
 

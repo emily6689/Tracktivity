@@ -11,6 +11,35 @@
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
+// @import "foundation/components/global";
+// @import "foundation/components/buttons";
+// @import "foundation/components/button-groups";
+
+// .activity-list{ @include button-group-container();
+//   .activity-button { @include button(); }
+
+// & > li {
+//   @include button-group-style(
+//     // This controls the radius of the left and right edges. Set to true or px value. Default: false
+//     $radius:true,
+//     // This makes the buttons take up even space in their container. Set to the number of buttons in the group. Default: false.
+//     $even:false,
+//     // Controls how the buttons in the group float set to left or right. Default: $default-float.
+//     $float:right
+//   );
+//  }
+// }
+
+// $button-font-family: inherit;
+// $button-font-color: #2E313D;
+// $button-font-color-alt: #333;
+// $button-font-med: rem-calc(16);
+// $button-font-tny: rem-calc(11);
+// $button-font-sml: rem-calc(13);
+// $button-font-lrg: rem-calc(20);
+// $button-font-weight: bold;
+// $button-font-align: center;
+// $bg: orange;
 
 // $experimental: true;
 
@@ -55,10 +84,10 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #B31212;
-$secondary-color: #FF3333;
-$alert-color: #FB9D34;
-$success-color: #A8BF12;
+$primary-color: #23A38F;
+$secondary-color: #F0563D;
+$alert-color: #F0563D;
+$success-color: #B7C11E;
 $warning-color: #009B9d;
 // $info-color: #a0d3e8;
 
@@ -965,12 +994,12 @@ $warning-color: #009B9d;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use these to control margin and padding
-// $sub-nav-list-margin: rem-calc(-4 0 18);
-// $sub-nav-list-padding-top: rem-calc(4);
+$sub-nav-list-margin: rem-calc(-4 0 0);
+$sub-nav-list-padding-top: rem-calc(10);
 
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
-// $sub-nav-font-size: rem-calc(14);
+$sub-nav-font-size: rem-calc(30);
 // $sub-nav-font-color: #999;
 // $sub-nav-font-weight: normal;
 // $sub-nav-text-decoration: none;
@@ -1134,12 +1163,12 @@ $topbar-bg-color: $secondary-color;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 60px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: rem-calc(35);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;

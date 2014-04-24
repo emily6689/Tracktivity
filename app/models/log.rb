@@ -17,32 +17,31 @@ class Log < ActiveRecord::Base
     (hours*60) + minutes
   end
 
-
-
   class << self
-    def sort_by_day(y, m, d)
-      date = Date.new(y,m,d)
-      Log.where(time_clocked_in: date.beginning_of_day..date.end_of_day)
-    end
-
     def sort_by_week(date)
       Log.where(time_clocked_in: date.beginning_of_week..date.end_of_week)
     end
 
-    def sort_by_month(y, m)
-      date = Date.new(y, m)
-      Log.where(time_clocked_in: date.beginning_of_month..date.end_of_month)
-    end
-
     def list_categories
-      queried_categories = []
-      Log.all.each do |log|
+      categories = Hash.new(0)
+      logs = self.includes(:categories)
+      logs.each do |log|
         log.categories.each do |category|
-          queried_categories << category
+          categories[category.name] += (log.duration/60.0) if log.duration
         end
       end
-      queried_categories.uniq
+      categories
     end
+
+    def total_productivity
+      productivity = {time_clocked_in: 0, time_clocked_out: 112}
+      Log.all.each do |log|
+        productivity[:time_clocked_in] += (log.duration/60.0)
+        productivity[:time_clocked_out] -= (log.duration/60.0)
+      end
+      productivity
+    end
+
   end
 end
 

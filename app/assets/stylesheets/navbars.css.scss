@@ -44,7 +44,7 @@ div.my-nav{
 /*<-- Body -->*/
 body{
   background-image:url('/assets/tree_bark.png');
-    background-image:url('http://sc.studentboss.com/upload/photofiles/201008/bbsurjteu7.jpg');
+    background-image:url('http://sc.studentboss.com/upload/photofiles/201008/jncqswm0hp.jpg');
 }
 
 .small-12{
@@ -70,7 +70,19 @@ ul.activity-list{
 }
 
 .button {
-background-color: #2E313D;
+  background-color: #2E313D;
+}
+
+.activity-button {
+  background-color: #EFF1C2;
+  font-size: 30px;
+}
+
+.activity-button a {
+  color: #F0563D
+}
+.activity-button:hover{
+  background-color: white;
 }
 
 

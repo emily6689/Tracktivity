@@ -4,7 +4,7 @@
   <ul class="button-group">
     <% @activities.each do |activity|%>
     <div class="row">
-      <li class = "activity-button medium-12 columns"><%= link_to activity.name,  activity_path(activity)%></li>
+      <li class = "button activity-button columns"><%= link_to activity.name,  activity_path(activity)%></li>
     </div>
     <%- end -%>
   </ul>

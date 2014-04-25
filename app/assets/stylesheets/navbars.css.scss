@@ -3,7 +3,7 @@
 div.my-nav{
   height: 100px;
   width: 100%;
-  background-color: #2E313D;
+  background-image:url('/assets/shinyblue.jpg');
   margin-top: 10px;
   text-align: center;
 }
@@ -43,14 +43,19 @@ div.my-nav{
 
 /*<-- Body -->*/
 body{
-  background-image:url('/assets/tree_bark.png');
-    background-image:url('http://sc.studentboss.com/upload/photofiles/201008/jncqswm0hp.jpg');
+  background-image:url('/assets/metallic.jpg');
 }
 
+// h1{
+//   color: #2E313D;
+// }
+.nav{
+  background-image:url('/assets/metallic.jpg');
+}
 .small-12{
   margin-top: 10px;
   text-align: center;
-  background-color: #EFF1C2 ;
+  background-image:url('/assets/shinygreen.jpg');
   border-style:solid;
   border-color: #2E313D;
   border-width: 10px;
@@ -65,26 +70,32 @@ body{
   text-align: center
 }
 
-ul.activity-list{
+ul.button-group{
   text-align: center
 }
 
-.button {
+.button{
   background-color: #2E313D;
 }
 
 .activity-button {
-  background-color: #EFF1C2;
+  background-image:url('/assets/shinygreen.jpg');
   font-size: 30px;
 }
 
-.activity-button a {
-  color: #F0563D
+.activity-button a:hover {
+  color: #2E313D
 }
-.activity-button:hover{
-  background-color: white;
+.activity-button a{
+  padding: 10px;
+  background-image:url('/assets/shinygreen.jpg');
+  color: white
 }
 
+.activity-button a:hover {
+  background-image:url('/assets/shinyblue.jpg');
+  color: white
+}
 
 
 

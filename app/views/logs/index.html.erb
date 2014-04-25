@@ -10,5 +10,6 @@
 <% if @queried_logs != nil %>
   <%= pie_chart @total_productivity.map { |label, duration| [label, duration] } %>
 
-  <%= column_chart @queried_categories.map { |category, duration| [category, duration] }, library: {colors: ["red"]} %>
+  <%= column_chart @queried_categories.map { |category, duration| [category, duration] },library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}} %>
 <% end %>
+

@@ -27,7 +27,7 @@ class Log < ActiveRecord::Base
       logs = self.includes(:categories)
       logs.each do |log|
         log.categories.each do |category|
-          categories[category.name] += (log.duration/60.0) if log.duration
+          categories[category.name] += (log.duration/60.0).round(2) if log.duration
         end
       end
       categories
@@ -38,6 +38,9 @@ class Log < ActiveRecord::Base
       Log.all.each do |log|
         productivity[:time_clocked_in] += (log.duration/60.0)
         productivity[:time_clocked_out] -= (log.duration/60.0)
+      end
+      productivity.each do |key, value|
+        productivity[value] = value.round(2)
       end
       productivity
     end

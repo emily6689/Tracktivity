@@ -54,18 +54,47 @@
     }
 
     function startTimer(){
+      // timer = setInterval(stopWatch('<%= @log.time_clocked_in %>'), 1000);
       timer = setInterval(function(){
-        var seconds = $('.seconds').text();
-        $('.seconds').text(++seconds);
+        var seconds = Number($('.seconds').text());
+        var minutes = Number($('.minutes').text());
+        var hours = Number($('.hours').text());
+        seconds++;
+        if (seconds > 59){
+          seconds = 0;
+          minutes++;
+        }
+        if (minutes > 59){
+          minutes = 0;
+          hours++;
+        }
+        if (seconds < 10) {
+          seconds = '0' + seconds;
+        }
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+        var seconds = $('.seconds').text(seconds);
+        var minutes = $('.minutes').text(minutes);
+        var hours = $('.hours').text(hours);
       }, 1000)
-      setInterval(function(){
-        var minutes = $('.minutes').text();
-        $('.minutes').text(++minutes);
-      }, 60000)
-      setInterval(function(){
-      var minutes = $('.minutes').text();
-      $('.minutes').text(++minutes);
-      }, 3600000)
+      // timer = setInterval(function(){
+      //   var seconds = $('.seconds').text();
+      //   if (seconds++ >= 60){
+      //     seconds = 0
+      //   } else {
+      //     seconds
+      //   }
+      //   $('.seconds').text(seconds);
+      // }, 1000)
+      // setInterval(function(){
+      //   var minutes = $('.minutes').text();
+      //   $('.minutes').text(++minutes);
+      // }, 60000)
+      // setInterval(function(){
+      // var minutes = $('.minutes').text();
+      // $('.minutes').text(++minutes);
+      // }, 3600000)
     }
 
     function stopTimer(){

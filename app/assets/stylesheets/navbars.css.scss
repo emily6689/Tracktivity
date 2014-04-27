@@ -1,46 +1,12 @@
+/*<--- Nav Bar --->*/
 
-/*<-- Nav Bars -->*/
-div.my-nav{
-  height: 100px;
-  width: 100%;
-  background-color:#F0563D;
-  // background-image:url('/assets/shinyblue.jpg');
-  margin-top: 10px;
-  text-align: center;
+ul.left > li > a{
+  color: #b7c11e;
   font-family: 'courier new';
+  font-size: 20px
 }
 
-.my-nav ul{
-  margin: 0 auto;
-}
-
-.my-nav li {
-  height: 90px;
-  width: 250px;
-  display: inline-block;
-  font-size: 30px;
-}
-
-.my-nav a{
-  height: 90px;
-  width: 250px;
-  margin-top: 20px;
-  color: white;
-  padding-left: 10px;
-  font-family: 'courier new'
-
-}
-
-.my-nav > ul > li > .active,
-.my-nav a:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.activity{
-  padding: 16px;
-}
-
+// .my-nav > ul > li > .active,
 
 
 /*<-- Body -->*/

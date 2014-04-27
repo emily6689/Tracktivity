@@ -5,11 +5,13 @@
   <% end %>
 </div>
 
-<%= pie_chart @activities.map { |activity| [activity.name, activity.logs.sum(:duration)] }, library: {colors: ["#b7c11e", "#F0563D", "#00aab5", "#2E313D"]}  %>
-
 <% if @queried_logs != nil %>
-  <%= pie_chart @total_productivity.map { |label, duration| [label, duration] }%>
 
-  <%= column_chart @queried_categories.map { |category, duration| [category, duration] },library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}} %>
+  <%= pie_chart @queried_activities.map { |activity, duration| [activity, duration] }, library: {colors: ["#F0563D", "#00aab5","#aec344", "#FF6A00", "#725E54"]}  %>
+
+  <%= pie_chart @total_productivity.map { |label, duration| [label, duration] }, library: {colors: ["#b7c11e","#2E313D"]}%>
+
+  <%= column_chart @queried_categories.map { |category, duration| [category, duration] },library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}, :isStacked => true}%>
+
 <% end %>
 

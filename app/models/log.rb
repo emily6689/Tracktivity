@@ -36,6 +36,15 @@ class Log < ActiveRecord::Base
       categories
     end
 
+    def list_activities
+      activities = Hash.new(0)
+      logs = self.includes(:activity)
+      logs.each do |log|
+        activities[log.activity.name] += (log.duration/60.0).round(2) if log.duration
+      end
+      activities
+    end
+
     def total_productivity
       productivity = {time_clocked_in: 0, time_clocked_out: 112}
       Log.all.each do |log|

@@ -4,11 +4,15 @@ class LogsController < ApplicationController
     @activities = current_user.activities
     @logs = current_user.logs
     if params[:q]
-      query_date = Date.parse(params[:q][:date])
-      @queried_logs       = @logs.sort_by_week(query_date)
-      @total_productivity = @queried_logs.total_productivity
-      @queried_categories = @queried_logs.list_categories
-      render :index
+        if params[:q]['date'] != ''
+          query_date = Date.parse(params[:q][:date])
+          @queried_logs       = @logs.sort_by_week(query_date)
+          @total_productivity = @queried_logs.total_productivity
+          @queried_categories = @queried_logs.list_categories
+          render :index
+        else
+          flash[:notice] = "Please select a valid date."
+      end
     end
   end
 

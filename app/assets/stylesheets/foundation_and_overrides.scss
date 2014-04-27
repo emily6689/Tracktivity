@@ -11,37 +11,7 @@
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
-// @import "foundation/components/global";
-// @import "foundation/components/buttons";
-// @import "foundation/components/button-groups";
 
-// .activity-list{ @include button-group-container();
-//   .activity-button { @include button(); }
-
-// & > li {
-//   @include button-group-style(
-//     // This controls the radius of the left and right edges. Set to true or px value. Default: false
-//     $radius:true,
-//     // This makes the buttons take up even space in their container. Set to the number of buttons in the group. Default: false.
-//     $even:false,
-//     // Controls how the buttons in the group float set to left or right. Default: $default-float.
-//     $float:right
-//   );
-//  }
-// }
-
-// $button-font-family: inherit;
-// $button-font-color: #2E313D;
-// $button-font-color-alt: #333;
-// $button-font-med: rem-calc(16);
-// $button-font-tny: rem-calc(11);
-// $button-font-sml: rem-calc(13);
-// $button-font-lrg: rem-calc(20);
-// $button-font-weight: bold;
-// $button-font-align: center;
-// $bg: orange;
-
-// $experimental: true;
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -367,7 +337,7 @@ $warning-color: #009B9d;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: 5%;
+ $button-function-factor: 0%;
 
 // We use these to control button border styles.
 // $button-border-width: 1px;

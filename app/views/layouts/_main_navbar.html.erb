@@ -1,12 +1,17 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">Tracktivity</a></h1>
+      <h1><%= link_to 'Traktivity', root_path%></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
 
   <section class="top-bar-section">
+    <ul class="left">
+      <li><%= link_to 'Activities', activities_path%></li>
+      <li><%= link_to 'Statements', logs_path  %></li>
+      <li><%= link_to 'New Activity', new_activity_path%></li>
+    </ul>
     <!-- Right Nav Section -->
     <ul class="right">
       <%- if user_signed_in? -%>
@@ -18,3 +23,4 @@
     </ul>
   </section>
 </nav>
+

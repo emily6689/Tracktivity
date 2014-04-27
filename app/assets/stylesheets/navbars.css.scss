@@ -3,9 +3,11 @@
 div.my-nav{
   height: 100px;
   width: 100%;
-  background-image:url('/assets/shinyblue.jpg');
+  background-color:#F0563D;
+  // background-image:url('/assets/shinyblue.jpg');
   margin-top: 10px;
   text-align: center;
+  font-family: 'courier new';
 }
 
 .my-nav ul{
@@ -24,7 +26,8 @@ div.my-nav{
   width: 250px;
   margin-top: 20px;
   color: white;
-  padding-left: 10px
+  padding-left: 10px;
+  font-family: 'courier new'
 
 }
 
@@ -46,17 +49,14 @@ body{
   background-image:url('/assets/metallic.jpg');
 }
 
-// h1{
-//   color: #2E313D;
-// }
 .nav{
   background-image:url('/assets/metallic.jpg');
 }
 .small-12{
   margin-top: 10px;
+  padding: 15px;
   text-align: center;
-  background-image:url('/assets/shinygreen.jpg');
-  border-style:solid;
+  background: linear-gradient(to right, rgba(183,193,30,1), rgba(146,154,24,0));  border-style:solid;
   border-color: #2E313D;
   border-width: 10px;
 }
@@ -79,27 +79,45 @@ ul.button-group{
 }
 
 .activity-button {
-  background-image:url('/assets/shinygreen.jpg');
   font-size: 30px;
 }
 
+.activity-button{
+  background-color:rgba(255,0,0,0);
+  margin: 100px;
+}
 .activity-button a:hover {
   color: #2E313D
 }
 .activity-button a{
   padding: 10px;
-  background-image:url('/assets/shinygreen.jpg');
-  color: white
+  background: linear-gradient(to right, rgba(240,86,61,0.5), rgba(240,86,61,1));  border-style:solid;
+  color: white;
+  font-family: 'courier new';
+  border-style:solid;
+  border-color: #2E313D;
+  border-width: 5px;
 }
 
 .activity-button a:hover {
-  background-image:url('/assets/shinyblue.jpg');
+  background-color:#2E313D;
   color: white
 }
 
+div.timer{
+  font-family: 'courier new';
+}
 
+p.time{
+  font-size: 50px;
+}
 
+h1{
+  font-family: 'courier new';
+  font-weight: bold;
+}
 
-
-
+.button:hover{
+  background: rgba(146,154,24,0)
+}
 

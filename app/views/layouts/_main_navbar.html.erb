@@ -6,12 +6,15 @@
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
 
+
   <section class="top-bar-section">
+  <% if user_signed_in? %>
     <ul class="left">
       <li><%= link_to 'Activities', activities_path%></li>
       <li><%= link_to 'Statements', logs_path  %></li>
       <li><%= link_to 'New Activity', new_activity_path%></li>
     </ul>
+    <% end %>
     <!-- Right Nav Section -->
     <ul class="right">
       <%- if user_signed_in? -%>

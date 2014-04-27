@@ -11,7 +11,7 @@
 
   <%= pie_chart @total_productivity.map { |label, duration| [label, duration] }, library: {colors: ["#b7c11e","#2E313D"]}%>
 
-  <%= column_chart @queried_categories.map { |category, duration| [category, duration] },library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}, :isStacked => true}%>
+  <%= column_chart @queried_stuff.map { |category, duration| [category, duration] },library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}, :isStacked => true}%>
 
 <% end %>
 

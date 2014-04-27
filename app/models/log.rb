@@ -36,6 +36,22 @@ class Log < ActiveRecord::Base
       categories
     end
 
+    def list_stacked_categories
+      categories = Hash.new
+      logs = self.includes(:categories, :activity)
+      logs.each do |log|
+        log.categories.each do |category|
+          categories[category.name] = Hash.new(0)
+        end
+      end
+      logs.each do |log|
+        log.categories.each do |category|
+          categories[category.name][log.activity.name] += log.duration
+        end
+      end
+      categories
+    end
+
     def list_activities
       activities = Hash.new(0)
       logs = self.includes(:activity)

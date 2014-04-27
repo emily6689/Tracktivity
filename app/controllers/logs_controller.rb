@@ -7,6 +7,7 @@ class LogsController < ApplicationController
         if params[:q]['date'] != ''
           query_date = Date.parse(params[:q][:date])
           @queried_logs       = @logs.sort_by_week(query_date)
+          @queried_stuff = @queried_logs.list_stacked_categories
           @queried_activities = @queried_logs.list_activities
           @total_productivity = @queried_logs.total_productivity
           @queried_categories = @queried_logs.list_categories

@@ -46,13 +46,13 @@ class Log < ActiveRecord::Base
     end
 
     def total_productivity
-      productivity = {time_clocked_in: 0, time_clocked_out: 112}
+      productivity = {'Time Spent Clocked In' => 0, 'Time Spent Clocked Out'=> 112}
       Log.all.each do |log|
-        productivity[:time_clocked_in] += (log.duration/60.0)
-        productivity[:time_clocked_out] -= (log.duration/60.0)
+        productivity['Time Spent Clocked In'] += (log.duration/60.0)
+        productivity['Time Spent Clocked Out'] -= (log.duration/60.0)
       end
-      productivity[:time_clocked_out] = productivity[:time_clocked_out].round(2)
-      productivity[:time_clocked_in] = productivity[:time_clocked_in].round(2)
+      productivity['Time Spent Clocked In'] = productivity['Time Spent Clocked In'].round(2)
+      productivity['Time Spent Clocked Out'] = productivity['Time Spent Clocked Out'].round(2)
       productivity
     end
   end

@@ -6,7 +6,9 @@ ul.left > li > a{
   font-size: 20px
 }
 
-// .my-nav > ul > li > .active,
+ul.right > li > a{
+  font-family: 'courier new';
+}
 
 
 /*<-- Body -->*/
@@ -84,7 +86,15 @@ h1{
   font-weight: bold;
 }
 
-.button:hover{
+ul.button-group .button:hover{
   background: rgba(146,154,24,0)
 }
+
+.button:hover{
+  background-color:rgba(46,49,61,0.5)
+}
+
+
+
+
 

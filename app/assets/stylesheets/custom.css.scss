@@ -41,21 +41,18 @@ ul.button-group{
   text-align: center
 }
 
-.button{
+.button:hover{
   background-color: #2E313D;
 }
 
-.activity-button {
-  font-size: 30px;
+.button{
+  background-color:rgba(46,49,61,0.5)
 }
 
 .activity-button{
   background-color:rgba(255,0,0,0);
   margin: 100px;
-}
-
-.activity-button a:hover {
-  color: #2E313D
+  font-size: 30px;
 }
 
 .activity-button a{
@@ -89,12 +86,3 @@ h1{
 ul.button-group .button:hover{
   background: rgba(146,154,24,0)
 }
-
-.button:hover{
-  background-color:rgba(46,49,61,0.5)
-}
-
-
-
-
-

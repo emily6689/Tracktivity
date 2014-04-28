@@ -27,11 +27,11 @@ class Log < ActiveRecord::Base
       logs = self.includes(:categories)
       logs.each do |log|
         log.categories.each do |category|
-          categories[category.name] += (log.duration/60.0).round(2) if log.duration
+          categories[category.name] += (log.duration/60.0).round(1) if log.duration
         end
       end
       categories.each do |key, value|
-        categories[key] = categories[key].round(2)
+        categories[key] = categories[key].round(1)
       end
       categories
     end
@@ -40,7 +40,7 @@ class Log < ActiveRecord::Base
       activities = Hash.new(0)
       logs = self.includes(:activity)
       logs.each do |log|
-        activities[log.activity.name] += (log.duration/60.0).round(2) if log.duration
+        activities[log.activity.name] += (log.duration/60.0).round(1) if log.duration
       end
       activities
     end
@@ -51,8 +51,8 @@ class Log < ActiveRecord::Base
         productivity['Time Spent Clocked In'] += (log.duration/60.0)
         productivity['Time Spent Clocked Out'] -= (log.duration/60.0)
       end
-      productivity['Time Spent Clocked In'] = productivity['Time Spent Clocked In'].round(2)
-      productivity['Time Spent Clocked Out'] = productivity['Time Spent Clocked Out'].round(2)
+      productivity['Time Spent Clocked In'] = productivity['Time Spent Clocked In'].round(1)
+      productivity['Time Spent Clocked Out'] = productivity['Time Spent Clocked Out'].round(1)
       productivity
     end
   end

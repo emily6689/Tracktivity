@@ -1,6 +1,6 @@
 == Traktivity, the productivity tracking app
 
-http://traktivity.herokuapp.com/
+http://traktivity.herokuapp.com
 
 Wondering where all that time goes?? ...Not anymore! Use traktivity to clock-in and out when you're doing something productive to get more insight into how you're spend your time. Get weekly statements on your time allocation, and use this info to improve you're time management habits.
 

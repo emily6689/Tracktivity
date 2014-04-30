@@ -1,28 +1,23 @@
-== README
+== Traktivity, the productivity tracking app!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://traktivity.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Wondering where all that time goes?? ...Not anymore! Use traktivity to clock-in and out when you're doing something productive to get more insight into how you're spend your time. Get weekly statements on your time allocation, and use this info to improve you're time management habits.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  1. Create a new Activity:
+      Create activities to track by navigating to the "New Activity" page and filling out the form.
+      Make sure to assign your activity to the appropriate categories!
+      
+  2. Clock-in to an activity:
+      Navigate to the homepage and click on the activity in which you are about to partake. This will bring you to a page where you can clock in. A stopwatch will show how long you've been engaging in your activity. Feel free to navigate away from this page, but remember to come back to clock-out. Once you clock-out, a new log is saved to the database with all the information about when you did this activity and for how long.
+      
+      
+  3. Get weekly productivity Statements:
+      Click on Statements in the top navbar. There you'll have an option to select a date. This will pull up charts and graphs illustrating how you spent your time for that week (weeks always start on Monday). 
+      
+
+
+What are you waiting for? Get it done!
+
+

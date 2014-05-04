@@ -10,7 +10,9 @@ class LogsController < ApplicationController
           @queried_activities = @queried_logs.list_activities
           @total_productivity = @queried_logs.total_productivity
           @queried_categories = @queried_logs.list_categories
-          render :index
+          respond_to do |format|
+            format.json { render json: @logs }
+          end
         else
           flash[:notice] = "Please select a valid date."
       end

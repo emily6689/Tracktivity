@@ -46,3 +46,9 @@ function stopWatch(clockIn) {
     function stopTimer(){
       clearInterval(timer);
     }
+
+
+function arrangeHash() {
+  alert("It's working omgzz!")
+};
+

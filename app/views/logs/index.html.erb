@@ -1,17 +1,27 @@
 <div id="search-form">
-  <%=simple_form_for :q, url: search_logs_path, method: :post do |f|%>
+  <%=simple_form_for :q, url: search_logs_path, method: :post, remote: true do |f|%>
     <%= f.input :date, label: "Select Week", input_html: {class: 'datepicker'} %>
     <%= f.submit 'Search', class: 'button small'%>
   <% end %>
 </div>
 
-<% if @queried_logs != nil %>
 
+
+<% if @queried_logs != nil %>
   <%= pie_chart @queried_activities.map { |activity, duration| [activity, duration] }, library: {colors: ["#F0563D", "#00aab5","#aec344", "#FF6A00", "#725E54"], title: "Time Spent on Activites (hours):"}  %><br>
 
   <%= pie_chart @total_productivity.map { |label, duration| [label, duration] }, library: {colors: ["#b7c11e","#2E313D"], title: "Time Spent Clocked In During Waking hours (assumes 8 hours of sleep a night):"}%><br>
 
   <%= column_chart @queried_categories.map { |category, duration| [category, duration]},library: {hAxis: {title: "Category"}, vAxis: {title: "Hours"}, colors: ["#FF6A00"], title: "General Use of Time:"}%>
+<% end %>
 
+
+<% content_for :extra_footer do %>
+  <script>
+    $(function(){
+      $('.button').on('ajax:success', function(){
+        arrangeHash()});
+      });
+  </script>
 <% end %>
 

@@ -1,9 +1,9 @@
 /*<--- Nav Bar --->*/
 
 ul.left > li > a{
-  color: #b7c11e;
+  color: white;
   font-family: 'courier new';
-  font-size: 20px
+  font-size: 20px;
 }
 
 ul.right > li > a{
@@ -21,15 +21,14 @@ body.after {
   opacity: 0.8;
 }
 
-.nav{
-  // background-image:url('/assets/coffee.jpg');
-}
+
 .small-12{
   margin: 50px;
-  padding: 50px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   text-align: center;
   border-style:solid;
-  background: rgba(153, 0, 0, 0.8);
+  background-color: rgba(153, 36, 36, 0.9);
   border-color: #2E313D;
   border-width: 10px;
 }
@@ -79,10 +78,12 @@ ul.button-group{
 
 div.timer{
   font-family: 'courier new';
+
 }
 
 p.time{
   font-size: 50px;
+  color: white;
 }
 
 h1{
